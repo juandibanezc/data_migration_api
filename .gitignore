@@ -1,0 +1,55 @@
+# General Python Ignored Files
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.egg-info/
+*.log
+
+# Virtual Environment
+venv/
+globant_venv/
+.env
+.env.local
+*.env
+
+# Logs & Debugging Files
+logs/
+*.log
+debug.log
+
+# Configuration & Secrets
+config.json
+config.yaml
+*.pem
+*.key
+secrets.toml
+secrets.json
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# VS Code & IDE Specific Files
+.vscode/
+.idea/
+*.iml
+
+# Build/Cache Files
+build/
+dist/
+*.tar.gz
+
+# Backup Files
+backups/
+*.avro
+
+# 📜 Jupyter Notebooks
+.ipynb_checkpoints/
+
+# 🔍 Miscellaneous
+.DS_Store
+Thumbs.db
