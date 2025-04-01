@@ -13,7 +13,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # Base class for ORM models
 Base = declarative_base()
 
-def get_db() -> Generator[Session]:
+def get_db():
   """
   Dependency function for getting a database session.
 

@@ -3,7 +3,7 @@ from app.core.config import settings
 from app.api.v1.endpoints import migrations, transactions, backups, reports
 
 app = FastAPI(
-    title="FastAPI Data Migration",
+    title="Data Migration API",
     description="A FastAPI service for data migration.",
     version="1.0.0"
 )

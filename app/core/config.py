@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings
 load_dotenv()
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "FastAPI Data Migration"
+    PROJECT_NAME: str = "Data Migration API"
     API_VERSION: str = "v1"
     
     # Database Config
