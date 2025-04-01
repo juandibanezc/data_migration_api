@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.config import settings
-from app.api.v1.endpoints import migrations
+from app.api.v1.endpoints import migrations, transactions
 
 app = FastAPI(
     title="FastAPI Data Migration",
@@ -10,6 +10,7 @@ app = FastAPI(
 
 # API routes
 app.include_router(migrations.router, prefix="/migrations", tags=["Migrations"])
+app.include_router(transactions.router, prefix="/transactions", tags=["Transactions"])
 
 @app.get("/", tags=["Health Check"])
 def health_check():
