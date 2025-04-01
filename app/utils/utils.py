@@ -1,8 +1,39 @@
+from datetime import datetime
 from typing import Optional
 
+import fastavro
 import boto3
 
 from app.core.config import settings
+
+def read_avro_file(file_path: str):
+    with open(file_path, "rb") as avro_file:
+      reader = fastavro.reader(avro_file)
+      records = list(reader)
+    return records
+
+def write_avro_file(file_path: str, schema: dict, records: list):
+    """Writes data records to an AVRO file."""
+    with open(file_path, "wb") as avro_file:
+        fastavro.writer(avro_file, schema, records)
+
+def deserialize_record(record, model):
+    """
+    Convert ISO 8601 datetime string back into a datetime object.
+    """
+    deserialized_record = {}
+    for column in model.__table__.columns:
+        column_name = column.name
+        if column_name in record:
+            value = record[column_name]
+            if column_name == "datetime":  # Check for ISO datetime format
+                try:
+                    deserialized_record[column_name] = datetime.fromisoformat(value)
+                except (TypeError,ValueError):
+                    deserialized_record[column_name] = value  # Keep as string if conversion fails
+            else:
+                deserialized_record[column_name] = value
+    return deserialized_record
 
 def fetch_csv_from_s3(file_path: str) -> Optional[str]:
   """
