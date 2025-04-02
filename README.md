@@ -3,7 +3,7 @@
 **A scalable, high-performance API system** engineered for seamless data ingestion, validation, migration, reporting, and backup operations on **PostgreSQL** databases.
 Designed with modular architecture and built on modern **Python** tools like **FastAPI**, **AVRO**, and **Docker**, this application ensures secure, efficient, and auditable data pipelines — making it ideal for both real-time transactional inputs and batch historical migrations.
 
-![alt text](data_migration_api/docs/images/api_docs.png)
+![alt text](docs/images/api_docs.png)
 
 ---
 
